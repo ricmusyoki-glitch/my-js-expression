@@ -96,8 +96,12 @@ const temperature = temperatures.map(temp =>{
     let tot_temperature_in_celcius = 0
     let tot_temperature_in_fahrenheit = 0
     for (let i = 0; i<temperatures.length; i++) {
-        tot_temperature_in_fahrenheit += temperatures[i].value
-        tot_temperature_in_celcius += temperatures[i].value 
+        if (temperatures[i].unit === "F") {
+            tot_temperature_in_fahrenheit += temperatures[i].value
+        }
+        if (temperatures[i].unit === "C") {
+            tot_temperature_in_celcius += temperatures[i].value
+        } 
     }
     let count = temperatures.length
     let avg_temperature_in_fahrenheit = tot_temperature_in_fahrenheit / count
